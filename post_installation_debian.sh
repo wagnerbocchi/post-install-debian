@@ -52,5 +52,18 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # Mudar plugins
 # plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
+# Instalar Vscodium
+#Adicionar a GPG key do respositório:
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+    | gpg --dearmor \
+    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+
+# Adicionar repo
+echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
+    | sudo tee /etc/apt/sources.list.d/vscodium.list
+
+# Instalar Vscodium
+sudo apt update && sudo apt install codium
+
 
 # REBOOT!!!!!!!!!!!!!!!!!!!!!
